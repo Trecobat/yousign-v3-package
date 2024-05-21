@@ -1,0 +1,16 @@
+{
+    "name": "trecobat/yousign-v3-package",
+    "description": "Utilisation de l'API V3 de YOUSIGN.",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^7.4",
+        "guzzlehttp/psr7": ">=1.8.5"
+    },
+    "authors": [
+        {
+            "name": "Pierre-Yves",
+            "email": "pierre-yves.desaulle@trecobat.fr"
+        }
+    ],
+    "minimum-stability": "dev"
+}
