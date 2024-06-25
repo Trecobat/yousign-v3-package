@@ -2,7 +2,16 @@
     "name": "trecobat/yousign-v3-package",
     "description": "Utilisation de l'API V3 de YOUSIGN.",
     "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Trecobat\\YousignV3Package\\": ["src/","tests/"],
+            "Trecobat\\YousignV3Package\\Model\\": "src/yousignModel/",
+            "Trecobat\\YousignV3Package\\Enums\\": "src/enums/",
+            "Trecobat\\YousignV3Package\\Interfaces\\": "src/inferfaces/"
+        }
+    },
     "require": {
+        "php": ">=8.0",
         "guzzlehttp/guzzle": "^7.4",
         "guzzlehttp/psr7": ">=1.8.5"
     },
@@ -12,5 +21,8 @@
             "email": "pierre-yves.desaulle@trecobat.fr"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "9.6.x-dev"
+    }
 }
