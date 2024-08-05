@@ -18,4 +18,11 @@ class SignerInfo extends Signer
         $this->info["phone_number"] = $phone_number;
         $this->info["locale"] = $local;
     }
+
+    public function __toString(): string
+    {
+        return "SignerInfo [[ infos  => " . json_encode( $this->info ) .
+            parent::__toString() .
+            " ]]";
+    }
 }

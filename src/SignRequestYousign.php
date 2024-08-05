@@ -3,7 +3,6 @@
 namespace Trecobat\YousignV3Package;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
 use Trecobat\YousignV3Package\Interfaces\SignRequestYousignApproverInterface;
 use Trecobat\YousignV3Package\Interfaces\SignRequestYousignAuditTrailInterface;
@@ -100,7 +99,8 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
     public function addDocument( Document $doc ){
 
 
-        echo("\r\n Ajout d'un document : " . $doc->getPathFile());
+        //echo("\r\n Ajout d'un document : " . $doc->getPathFile());
+        //Log::debug("mon doc à ajouter a ma demande de signature est est  : ")
 
         //Création du multipart
         $docJson = $doc->toJson();
@@ -108,13 +108,13 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
             $multipart[] = ['name' => $key,'contents' => $value];
         }
 
-        $contents = file_get_contents(__DIR__ . $doc->getPathFile());
-        echo( "\r\nCONTENT : " . $contents);
+        $contents = file_get_contents( $doc->getPathFile());
+        //echo( "\r\nCONTENT : " . $contents);
 
         //Ajout du fichier au multipart
-        $multipart[] =     [
+        $multipart[] = [
             'name' => 'file',
-            'filename' => "test.pdf",
+            'filename' => $doc->getFileName(),
             'headers'  => [
                 'Content-Type' => 'application/pdf'
             ],
@@ -213,6 +213,17 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
     }
 
     /**
+     * @return mixed
+     */
+    public function getDocuments()
+    {
+        $res = $this->clientApi->get( "signature_requests/".$this->signatureRequestId."/documents",[
+            "headers" => $this->headers
+        ]);
+        return json_decode($res->getBody()) ;
+    }
+
+    /**
      * @param string $documentId
      * @param string $nature [attachment,signable_document]
      * @param string|null $insertAfterId
@@ -275,7 +286,7 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
         $signerId = json_decode( $res->getBody() )->id;
         $this->signerIds[] = $signerId;
 
-        return $this;
+        return $signerId;
     }
 
     /**
@@ -453,6 +464,22 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
         return $this;
     }
 
+    /**
+     * Méthode permettant d'ajouter plusieurs Follower en une fois
+     *
+     * @param $followers [] tableau de follower [email,locale]
+     * @return $this
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function addFollowers($followers){
+        $this->clientApi->request("POST", "signature_requests/".$this->signatureRequestId."/followers",[
+            "headers" => $this->headers,
+            "json" => $followers
+        ] );
+
+        return $this;
+    }
+
     /***************************************/
     /** METADATA */
     /***************************************/
@@ -619,6 +646,25 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
         return $this->approverIds;
     }
 
+    public function __toString(): string
+    {
+        //    private string $apiBaseUrl;
+        //    private string $apiKey;
+        //    private array $headers;
+        //    private Client $clientApi;
+        //    private string $signatureRequestId;
+        //    private string $signatureRequestName;
+        //    private array $approverIds;
+        //    private array $documentIds;
+        //    private array $signerIds;
+        return "SignRequestYousign [ apiBaseUrl = " . $this->apiBaseUrl .
+            ", \r\n\tsignatureRequestId => ". ($this->signatureRequestId??'') .
+            ", \r\n\tsignatureRequestName => ". ($this->signatureRequestName??'') .
+            ", \r\n\tdocumentIds => ". implode(",",$this->documentIds??[])  .
+            ", \r\n\tsignerIds => ". implode(",",$this->signerIds??[]) .
+            ", \r\n\tapproverIds => ". implode(",",$this->approverIds??[]) .
+            "]";
+    }
 
 
 }

@@ -17,6 +17,8 @@ class Document extends YousignModelApi
      */
     private string $pathFile = "";
 
+    private string $fileName;
+
     /**
      * @var string $nature
      */
@@ -43,9 +45,10 @@ class Document extends YousignModelApi
      */
     public string $parse_anchors;
 
-    public function __construct($pathFile,$nature = "signable_document")
+    public function __construct($pathFile, $fileName, $nature = "signable_document")
     {
         $this->pathFile = $pathFile;
+        $this->fileName = $fileName;
         $this->nature = $nature;
     }
 
@@ -55,6 +58,14 @@ class Document extends YousignModelApi
     public function getPathFile(): string
     {
         return $this->pathFile;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFileName(): string
+    {
+        return $this->fileName;
     }
 
     /**
