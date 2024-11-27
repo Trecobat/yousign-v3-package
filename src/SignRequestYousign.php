@@ -129,7 +129,7 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
             "Authorization" => "Bearer " . $this->apiKey
         ];
         $upload = null;
-        var_dump($options);
+        //var_dump($options);
         try {
             $requestApi = new Request('POST', $this->apiBaseUrl."signature_requests/".$this->getSignatureRequestId()."/documents",$headers);
             $res = $this->clientApi->sendAsync($requestApi, $options)->wait();
@@ -141,7 +141,7 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
         /*$res = $this->clientApi->request("POST","/signature_requests/".$this->getSignatureRequestId()."/documents",);
         $upload = $res->getBody();*/
 
-        var_dump($upload);
+        //var_dump($upload);
         $docId = json_decode( $upload )->id;
         $this->documentIds[] = $docId;
 
