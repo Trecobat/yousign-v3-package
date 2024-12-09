@@ -151,9 +151,9 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
 
     /**
      * Liste les documents de ma SignRequest
-     * @return mixed
+     * @return array
      */
-    public function listDocuments(): mixed
+    public function listDocuments(): array
     {
         $request = new Request('GET', "signature_requests/".$this->signatureRequestId."/documents", $this->headers);
         $res = $this->clientApi->sendAsync($request)->wait();
@@ -291,9 +291,9 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
 
     /**
      * Liste les signers de ma SignRequest
-     * @return mixed
+     * @return array
      */
-    public function listSigners(): mixed
+    public function listSigners(): array
     {
         $request = new Request('GET', "signature_requests/".$this->signatureRequestId."/signers", $this->headers);
         $res = $this->clientApi->sendAsync($request)->wait();
