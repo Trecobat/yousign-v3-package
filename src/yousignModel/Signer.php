@@ -78,22 +78,22 @@ abstract class Signer extends YousignModelApi
 
     /**
      * @param string $request_subject
-     * @param string $request_boody
+     * @param string $request_body
      */
-    public function setCustomTextRequest(string $request_subject,string $request_boody ): void
+    public function setCustomTextRequest(string $request_subject,string $request_body ): void
     {
         $this->custom_text["request_subject"] = $request_subject;
-        $this->custom_text["request_boody"] = $request_boody;
+        $this->custom_text["request_body"] = $request_body;
     }
 
     /**
      * @param string $reminder_subject
-     * @param string $reminder_boody
+     * @param string $reminder_body
      */
-    public function setCustomTextReminder(string $reminder_subject,string $reminder_boody ): void
+    public function setCustomTextReminder(string $reminder_subject,string $reminder_body ): void
     {
         $this->custom_text["reminder_subject"] = $reminder_subject;
-        $this->custom_text["reminder_boody"] = $reminder_boody;
+        $this->custom_text["reminder_body"] = $reminder_body;
     }
 
     /**
