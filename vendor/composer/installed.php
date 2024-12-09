@@ -6,46 +6,50 @@
     'aliases' => 
     array (
     ),
-    'reference' => '9c1a535a72ffb2242f064cd75c0772c586a4f054',
+    'reference' => '1224ddec2266a4757a12ff0edc723a52b340be7f',
     'name' => 'trecobat/yousign-v3-package',
   ),
   'versions' => 
   array (
     'doctrine/instantiator' => 
     array (
-      'pretty_version' => '1.5.x-dev',
-      'version' => '1.5.9999999.9999999-dev',
+      'pretty_version' => '2.0.x-dev',
+      'version' => '2.0.9999999.9999999-dev',
       'aliases' => 
       array (
+        0 => '9999999-dev',
       ),
-      'reference' => '12be2483e1f0e850b353e26869e4e6c038459501',
+      'reference' => 'a9e64e5ea80184e14a66c262e5bcf3c2cb4a94d7',
     ),
     'guzzlehttp/guzzle' => 
     array (
-      'pretty_version' => '7.8.1',
-      'version' => '7.8.1.0',
+      'pretty_version' => '7.9.x-dev',
+      'version' => '7.9.9999999.9999999-dev',
       'aliases' => 
       array (
+        0 => '9999999-dev',
       ),
-      'reference' => '41042bc7ab002487b876a0683fc8dce04ddce104',
+      'reference' => 'd281ed313b989f213357e3be1a179f02196ac99b',
     ),
     'guzzlehttp/promises' => 
     array (
-      'pretty_version' => '2.0.2',
-      'version' => '2.0.2.0',
+      'pretty_version' => '2.0.x-dev',
+      'version' => '2.0.9999999.9999999-dev',
       'aliases' => 
       array (
+        0 => '9999999-dev',
       ),
-      'reference' => 'bbff78d96034045e58e13dedd6ad91b5d1253223',
+      'reference' => 'f9c436286ab2892c7db7be8c8da4ef61ccf7b455',
     ),
     'guzzlehttp/psr7' => 
     array (
-      'pretty_version' => '2.6.2',
-      'version' => '2.6.2.0',
+      'pretty_version' => '2.7.x-dev',
+      'version' => '2.7.9999999.9999999-dev',
       'aliases' => 
       array (
+        0 => '9999999-dev',
       ),
-      'reference' => '45b30f99ac27b5ca93cb4831afe16285f57b8221',
+      'reference' => 'a70f5c95fb43bc83f07c9c948baa0dc1829bf201',
     ),
     'myclabs/deep-copy' => 
     array (
@@ -55,17 +59,16 @@
       array (
         0 => '9999999-dev',
       ),
-      'reference' => '2f5294676c802a62b0549f6bc8983f14294ce369',
+      'reference' => '4764e040f8743e92b86c36f488f32d0265dd1dae',
     ),
     'nikic/php-parser' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => 'v5.3.1',
+      'version' => '5.3.1.0',
       'aliases' => 
       array (
-        0 => '5.0.x-dev',
       ),
-      'reference' => 'c5ee33df86c06b3278c670f64273b1ba768a0744',
+      'reference' => '8eea230464783aa9671db8eea6f8c6ac5285794b',
     ),
     'phar-io/manifest' => 
     array (
@@ -93,7 +96,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '3352293d9e91513d5508c415835014881b420218',
+      'reference' => '0448d60087a382392a1b2a1abe434466e03dcc87',
     ),
     'phpunit/php-file-iterator' => 
     array (
@@ -138,14 +141,15 @@
       'aliases' => 
       array (
       ),
-      'reference' => '07da7f5d51ff0bc9b0ea757be084a57e174b1312',
+      'reference' => 'f80235cb4d3caa59ae09be3adf1ded27521d1a9c',
     ),
     'psr/http-client' => 
     array (
-      'pretty_version' => '1.0.3',
-      'version' => '1.0.3.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
+        0 => '1.0.x-dev',
       ),
       'reference' => 'bb5906edc1c324c9a05aa0873d40117941e5fa90',
     ),
@@ -174,10 +178,11 @@
     ),
     'psr/http-message' => 
     array (
-      'pretty_version' => '2.0',
-      'version' => '2.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
+        0 => '2.0.x-dev',
       ),
       'reference' => '402d35bcb92c70c026d1a6a9883f06b2ead23d71',
     ),
@@ -344,12 +349,12 @@
     ),
     'symfony/deprecation-contracts' => 
     array (
-      'pretty_version' => 'v3.0.2',
-      'version' => '3.0.2.0',
+      'pretty_version' => '2.5.x-dev',
+      'version' => '2.5.9999999.9999999-dev',
       'aliases' => 
       array (
       ),
-      'reference' => '26954b3d62a6c5fd0ea8a2a00c0353a14978d05c',
+      'reference' => '605389f2a7e5625f273b53960dc46aeaf9c62918',
     ),
     'theseer/tokenizer' => 
     array (
@@ -367,7 +372,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '9c1a535a72ffb2242f064cd75c0772c586a4f054',
+      'reference' => '1224ddec2266a4757a12ff0edc723a52b340be7f',
     ),
   ),
 );
