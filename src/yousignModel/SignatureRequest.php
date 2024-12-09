@@ -26,16 +26,16 @@ class SignatureRequest extends YousignModelApi
      */
     public string $delivery_mode = "email";
     public bool $ordered_signers;
-    public object|null $reminder_settings;
+    public object $reminder_settings;
     public string $expiration_date;
     public string $template_id;
-    public string|null $external_id;
-    public string|null $custom_experience_id;
-    public string|null $workspace_id;
-    public string|null $audit_trail_locale;
+    public string $external_id;
+    public string $custom_experience_id;
+    public string $workspace_id;
+    public string $audit_trail_locale;
     public bool $signers_allowed_to_decline;
-    public SignatureRequestEmailNotification|null $email_notification;
-    public object|null $template_placeholders;
+    public SignatureRequestEmailNotification $email_notification;
+    public object $template_placeholders;
 
     public function __construct($name)
     {
