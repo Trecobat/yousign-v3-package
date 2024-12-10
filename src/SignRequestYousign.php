@@ -2,6 +2,7 @@
 
 namespace Trecobat\YousignV3Package;
 
+use App\Forms\Fields\Field;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use Trecobat\YousignV3Package\Interfaces\SignRequestYousignApproverInterface;
@@ -264,6 +265,16 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
             "headers" => $headers,
             'sink' => $pathFileToSave
         ] );
+    }
+
+    /***************************************/
+    /** DOCUMENT FIELDS */
+    /***************************************/
+
+    public function addDocumentField(string $documentId, Field $field){
+        $request = new Request('POST', "signature_requests/".$this->signatureRequestId."/documents/" .$documentId . "/fields", $this->headers, $field->toJson());
+        $res = $this->clientApi->sendAsync($request)->wait();
+        return json_decode( $res->getBody() );
     }
 
     /**
