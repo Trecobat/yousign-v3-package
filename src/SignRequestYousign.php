@@ -271,8 +271,8 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
     /** DOCUMENT FIELDS */
     /***************************************/
 
-    public function addDocumentField(string $documentId, Field $field){
-        $request = new Request('POST', "signature_requests/".$this->signatureRequestId."/documents/" .$documentId . "/fields", $this->headers, $field->toJson());
+    public function addDocumentField(string $documentId, array $field){
+        $request = new Request('POST', "signature_requests/".$this->signatureRequestId."/documents/" .$documentId . "/fields", $this->headers, json_encode($field) );
         $res = $this->clientApi->sendAsync($request)->wait();
         return json_decode( $res->getBody() );
     }

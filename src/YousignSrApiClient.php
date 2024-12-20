@@ -46,8 +46,6 @@ class YousignSrApiClient implements SignRequestYousignWebhookInterface
      */
     public function createSignatureRequest(SignatureRequest $signatureRequest){
 
-
-
         /*echo("\r\nBODY : " );
         var_dump("\r\n".$signatureRequest->toJson());*/
 
@@ -61,6 +59,42 @@ class YousignSrApiClient implements SignRequestYousignWebhookInterface
 
         return $resp;
     }
+
+    /**
+     * Permet de lister les demandes de signatures
+     * @param $tabQueryParams
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function listSignatureRequest($tabQueryParams = false){
+        $queryParams = "";
+        if( $tabQueryParams ){
+            $queryParams = "?".http_build_query($tabQueryParams);
+        }
+        $response = $this->client->request('GET', 'signature_requests' . $queryParams, [
+            'headers' => $this->headers
+        ]);
+
+        return json_decode( $response->getBody() );
+    }
+
+    /**
+     * Récupération d'une demande de signature à partir de son ID
+     *
+     * @param String $signatureRequestId
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getSignatureRequest(String $signatureRequestId ){
+
+        $response = $this->client->request("GET", "signature_requests/$signatureRequestId", [
+            'headers' => $this->headers
+        ]);
+
+        return json_decode( $response->getBody() );
+    }
+
+
 
     /**
      * List Webhook subscriptions
