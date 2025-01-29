@@ -10,11 +10,16 @@ use Trecobat\YousignV3Package\Model\Webhook;
 
 class YousignSrApiClient implements SignRequestYousignWebhookInterface
 {
-    private string $apiBaseUrl;
-    private string $apiVerion = "v3";
-    private string $apiKey ;
-    private Client $client;
-    private array $headers;
+    //private string $apiBaseUrl;
+    private $apiBaseUrl;
+    //private string $apiVerion = "v3";
+    private $apiVerion = "v3";
+    //private string $apiKey ;
+    private $apiKey ;
+    //private Client $client;
+    private $client;
+    //private array $headers;
+    private $headers;
 
     /**
      * Construction du client YOUSIGN

@@ -9,7 +9,7 @@ namespace Trecobat\YousignV3Package\Model;
  */
 abstract class Signer extends YousignModelApi
 {
-    //public SignatureLevelEnum $signature_level;
+/*    //public SignatureLevelEnum $signature_level;
     public string $signature_level;
     public array $fields;
     public string $insert_after_id;
@@ -18,7 +18,18 @@ abstract class Signer extends YousignModelApi
     public array $redirect_urls;
     public array $custom_text;
     //public DeliveryModeEnum $delivery_mode;
-    public string $delivery_mode;
+    public string $delivery_mode;*/
+
+    //public SignatureLevelEnum $signature_level;
+    public $signature_level;
+    public $fields;
+    public $insert_after_id;
+    //public SignatureAuthModeEnum $signature_authentication_mode;
+    public $signature_authentication_mode; //
+    public $redirect_urls;
+    public $custom_text;
+    //public DeliveryModeEnum $delivery_mode;
+    public $delivery_mode;
 
     public function __construct()
     {

@@ -11,39 +11,73 @@ namespace Trecobat\YousignV3Package\Model;
  */
 class Document extends YousignModelApi
 {
+//    /**
+//     * Path of the file  to add
+//     * @var string $pathFile
+//     */
+//    private string $pathFile = "";
+//
+//    private string $fileName;
+//
+//    /**
+//     * @var string $nature
+//     */
+//    public string $nature = "";
+//
+//    /**
+//     * insert just after the position of the specified document id
+//     * @var string $insert_after_id
+//     */
+//    public string $insert_after_id;
+//
+//    /**
+//     * @var string $password
+//     */
+//    public string $password;
+//
+//    /**
+//     * @var object $initials
+//     */
+//    public object $initials;
+//
+//    /**
+//     * @var string $parse_anchors
+//     */
+//    public string $parse_anchors;
+
     /**
      * Path of the file  to add
      * @var string $pathFile
      */
-    private string $pathFile = "";
+    private $pathFile = "";
 
-    private string $fileName;
+    private $fileName;
 
     /**
      * @var string $nature
      */
-    public string $nature = "";
+    public $nature = "";
 
     /**
      * insert just after the position of the specified document id
      * @var string $insert_after_id
      */
-    public string $insert_after_id;
+    public $insert_after_id;
 
     /**
-     * @var string $passord
+     * @var string $password
      */
-    public string $passord;
+    public $password = null;
 
     /**
      * @var object $initials
      */
-    public object $initials;
+    public $initials = null;
 
     /**
      * @var string $parse_anchors
      */
-    public string $parse_anchors;
+    public $parse_anchors = "false";
 
     public function __construct($pathFile, $fileName, $nature = "signable_document")
     {
@@ -95,17 +129,17 @@ class Document extends YousignModelApi
     /**
      * @return string
      */
-    public function getPassord(): string
+    public function getPassword(): string
     {
-        return $this->passord;
+        return $this->password;
     }
 
     /**
-     * @param string $passord
+     * @param string $password
      */
-    public function setPassord(string $passord): void
+    public function setPassword(string $password): void
     {
-        $this->passord = $passord;
+        $this->password = $password;
     }
 
     /**
@@ -149,6 +183,22 @@ class Document extends YousignModelApi
         //$this->parse_anchors = $parse_anchors;
     }
 
+    /**
+     * Retourne le model sous forme de JSON
+     * @return false|string
+     */
+    public function toJson(){
+        if( $this->insert_after_id == null ){
+            unset($this->insert_after_id);
+        }
+        if( $this->password == null ){
+            unset($this->password);
+        }
+        if( $this->initials == null ){
+            unset($this->initials);
+        }
+        return parent::toJson();
+    }
 
 
 }

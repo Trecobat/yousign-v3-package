@@ -7,7 +7,7 @@ namespace Trecobat\YousignV3Package\Model;
  */
 class SignerInfo extends Signer
 {
-    public array $info = [];
+    public $info = [];
 
 
     public function __construct($first_name,$last_name,$email,$phone_number,$local = "fr"){

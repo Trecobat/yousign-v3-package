@@ -16,26 +16,48 @@ namespace Trecobat\YousignV3Package\Model;
  */
 class SignatureRequest extends YousignModelApi
 {
+//    /**
+//     * @var string Name of the signature request
+//     */
+//    public string $name = "";
+//
+//    /**
+//     * @var string Delivery mode to notify signers. ['none','email']
+//     */
+//    public string $delivery_mode = "email";
+//    public bool $ordered_signers;
+//    public object $reminder_settings;
+//    public string $expiration_date;
+//    public string $template_id;
+//    public string $external_id;
+//    public string $custom_experience_id;
+//    public string $workspace_id;
+//    public string $audit_trail_locale;
+//    public bool $signers_allowed_to_decline;
+//    public SignatureRequestEmailNotification $email_notification;
+//    public object $template_placeholders;
+
     /**
      * @var string Name of the signature request
      */
-    public string $name = "";
+    public $name = "";
 
     /**
      * @var string Delivery mode to notify signers. ['none','email']
      */
-    public string $delivery_mode = "email";
-    public bool $ordered_signers;
-    public object $reminder_settings;
-    public string $expiration_date;
-    public string $template_id;
-    public string $external_id;
-    public string $custom_experience_id;
-    public string $workspace_id;
-    public string $audit_trail_locale;
-    public bool $signers_allowed_to_decline;
-    public SignatureRequestEmailNotification $email_notification;
-    public object $template_placeholders;
+    public $delivery_mode = "email";
+    public $ordered_signers;
+    public $reminder_settings;
+    public  $expiration_date;
+    public  $template_id;
+    public  $external_id;
+    public  $custom_experience_id;
+    public  $workspace_id;
+    public  $audit_trail_locale;
+    public  $signers_allowed_to_decline;
+    public  $email_notification;
+    public  $template_placeholders;
+
 
     public function __construct($name)
     {
@@ -91,7 +113,7 @@ class SignatureRequest extends YousignModelApi
     }
 
     /**
-     * @return object|null
+     * @return ReminderSettings|null
      */
     public function getReminderSettings(): ?object
     {
@@ -99,9 +121,9 @@ class SignatureRequest extends YousignModelApi
     }
 
     /**
-     * @param object|null $reminder_settings
+     * @param ReminderSettings|null $reminder_settings
      */
-    public function setReminderSettings(?object $reminder_settings): void
+    public function setReminderSettings(?ReminderSettings $reminder_settings): void
     {
         $this->reminder_settings = $reminder_settings;
     }

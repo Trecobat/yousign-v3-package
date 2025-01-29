@@ -19,7 +19,7 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
     SignRequestYousignDocumentInterface, SignRequestYousignFollowerInterface, SignRequestYousignMetadataInterface,
     SignRequestYousignSignersInterface
 {
-    private string $apiBaseUrl;
+/*    private string $apiBaseUrl;
     private string $apiKey;
     private array $headers;
     private Client $clientApi;
@@ -27,7 +27,18 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
     private string $signatureRequestName;
     private array $approverIds;
     private array $documentIds;
-    private array $signerIds;
+    private array $signerIds;*/
+
+    private $apiBaseUrl;
+    private $apiKey;
+    private $headers;
+    private $clientApi;
+    private $signatureRequestId;
+    private $signatureRequestName;
+    private $approverIds;
+    private $documentIds;
+    private $signerIds;
+
 
     /**
      * Contructeur de l'objet SIgnRequest Yousign
@@ -72,7 +83,7 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
      * @return mixed
      */
     public function cancel($reason,$custom_note){
-        $request = new Request('POST',"signature_requests/".$this->signatureRequestId."/cancel", $this->headers, json_encode([$reason,$custom_note]));
+        $request = new Request('POST',"signature_requests/".$this->signatureRequestId."/cancel", $this->headers, json_encode(["reason"=>$reason,"custom_note"=>$custom_note]));
         $res = $this->clientApi->sendAsync($request,)->wait();
         return json_decode($res->getBody()) ;
     }
@@ -359,6 +370,22 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
         ]);
 
         echo $response->getBody();
+    }
+
+    /**
+     * Sends a reminder to a given signer to complete their Signature Request.
+     * Only possible when the Signature Request status is ongoing and the Signer status is notified.
+     *
+     * @param string $signerId
+     * @return \Psr\Http\Message\StreamInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function sendReminderToSigner(string $signerId){
+        $response = $this->clientApi->request('POST', "signature_requests/".$this->signatureRequestId."/signers/$signerId/send_reminder", [
+            'headers' => $this->headers,
+        ]);
+
+        return  $response->getBody();
     }
 
     /**
