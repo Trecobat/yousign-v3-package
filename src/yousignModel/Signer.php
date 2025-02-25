@@ -116,18 +116,11 @@ abstract class Signer extends YousignModelApi
         $this->delivery_mode = $delivery_mode;
     }
 
+    /**
+     * @return string
+     */
     public function __toString(): string
     {
-        //    public string $signature_level;
-        //    public array $fields;
-        //    public string $insert_after_id;
-        //    //public SignatureAuthModeEnum $signature_authentication_mode;
-        //    public string $signature_authentication_mode; //
-        //    public array $redirect_urls;
-        //    public array $custom_text;
-        //    //public DeliveryModeEnum $delivery_mode;
-        //    public string $delivery_mode;
-
         return  "\r\n\tsignature_level => " . $this->signature_level .
                 ", fields => " . json_encode($this->fields??[]) .
                 "\r\n\t, insert_after_id => " . ($this->insert_after_id??null) .
@@ -136,7 +129,17 @@ abstract class Signer extends YousignModelApi
                 ", custom_text => " . json_encode($this->custom_text??[] ).
                 ", delivery_mode => " . $this->delivery_mode;
 
-        // TODO: Implement __toString() method.
+    }
+
+    /**
+     * @return false|string
+     */
+    public function toJson()
+    {
+        if($this->insert_after_id == null){
+            unset($this->insert_after_id);
+        }
+        return parent::toJson();
     }
 
 }
