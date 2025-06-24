@@ -12,14 +12,14 @@ class SignatureRequestEmailNotification extends YousignModelApi
      * -> custom_name To use in association with sender type custom to precise the name
      * @var array
      */
-    public array $sender;
+    public $sender;
 
     /**
      * Custom note to add to the notification
      *
      * @var string
      */
-    public string|null $custom_note;
+    public $custom_note;
 
     /**
      * @param array $sender

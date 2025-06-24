@@ -31,6 +31,8 @@ abstract class Signer extends YousignModelApi
     //public DeliveryModeEnum $delivery_mode;
     public $delivery_mode;
 
+    public $email_notification;
+
     public function __construct()
     {
         //$this->signature_level = SignatureLevelEnum::electronic_signature;
@@ -114,6 +116,27 @@ abstract class Signer extends YousignModelApi
     public function setDeliveryMode(string $delivery_mode): void
     {
         $this->delivery_mode = $delivery_mode;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmailNotification()
+    {
+        return $this->email_notification;
+    }
+
+    /**
+     * @param mixed $email_notification
+     */
+    public function setEmailNotification($email_notification): void
+    {
+        $this->email_notification = $email_notification;
+    }
+
+    public function addEmailNotificationDisabled($notif): void
+    {
+        $this->email_notification->disabled[] = $notif;
     }
 
     /**
