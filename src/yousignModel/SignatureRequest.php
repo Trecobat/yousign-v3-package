@@ -58,6 +58,8 @@ class SignatureRequest extends YousignModelApi
     public  $email_notification;
     public  $template_placeholders;
 
+    public $signers = null;
+
 
     public function __construct($name)
     {
@@ -270,6 +272,25 @@ class SignatureRequest extends YousignModelApi
     public function setTemplatePlaceholders(?object $template_placeholders): void
     {
         $this->template_placeholders = $template_placeholders;
+    }
+
+    /**
+     * @return null
+     */
+    public function getSigners(): null
+    {
+        return $this->signers;
+    }
+
+    public function setSigners(?array $signers): void{
+        $this->signers = $signers;
+    }
+
+    public function addSigner( Signer $signer ):void{
+        unset($signer->insert_after_id);
+        unset($signer->delivery_mode);
+        unset($signer->email_notification);
+        $this->signers[] = $signer;
     }
 
 
