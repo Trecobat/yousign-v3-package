@@ -274,10 +274,7 @@ class SignatureRequest extends YousignModelApi
         $this->template_placeholders = $template_placeholders;
     }
 
-    /**
-     * @return null
-     */
-    public function getSigners(): null
+    public function getSigners()
     {
         return $this->signers;
     }
