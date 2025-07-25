@@ -39,6 +39,8 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
     private $documentIds;
     private $signerIds;
 
+    private $responseApi;
+
 
     /**
      * Contructeur de l'objet SIgnRequest Yousign
@@ -669,9 +671,9 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
     }
 
     /**
-     * @return array
+     * @return array|null
      */
-    public function getSignerIds(): array
+    public function getSignerIds(): array|null
     {
         return $this->signerIds;
     }
@@ -682,6 +684,18 @@ class SignRequestYousign implements SignRequestYousignApproverInterface, SignReq
     public function getApproverIds(): array
     {
         return $this->approverIds;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getResponseApi()
+    {
+        return $this->responseApi;
+    }
+
+    public function setResponseApi($responseApi){
+        $this->responseApi = $responseApi;
     }
 
     public function __toString(): string

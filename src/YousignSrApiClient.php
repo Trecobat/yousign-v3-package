@@ -60,8 +60,9 @@ class YousignSrApiClient implements SignRequestYousignWebhookInterface
         ]);
 
         $objRetourApi = json_decode($response->getBody());
+        $this->responseApi = $objRetourApi;
         $resp = new SignRequestYousign($objRetourApi->id,$objRetourApi->name, $this->apiBaseUrl,$this->apiKey);
-
+        $resp->setResponseApi($objRetourApi);
         return $resp;
     }
 
