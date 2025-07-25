@@ -100,6 +100,22 @@ class YousignSrApiClient implements SignRequestYousignWebhookInterface
         return json_decode( $response->getBody() );
     }
 
+    /**
+     * @param String $signatureRequestId Id de la signature Request
+     * @param String $signerId Id du signataire
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getSignatureRequestSignerAuditTrail(String $signatureRequestId, String $signerId ){
+
+        $response = $this->client->request("GET", "signature_requests/$signatureRequestId/signers/$signerId/audit_trails", [
+            'headers' => $this->headers
+        ]);
+
+        return json_decode( $response->getBody() );
+    }
+
+
 
 
     /**
